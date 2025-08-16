@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public class StudentService {
-    private final List<Student> students = new ArrayList<>();
+    private final List<Student> students = new ArrayList<>(new Student());
 
     public List<Student> getAllStudents() {
         return students;
