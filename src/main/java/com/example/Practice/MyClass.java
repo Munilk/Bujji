@@ -7,30 +7,34 @@ package com.example.Practice;
 
 
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import com.example.Practice.*;
+
+import com.example.Practice.Repo;
 
 @RestController
 @RequestMapping("home")
 public class MyClass{
 
 
-//@AutoWired
-//private Student s;
+@Autowired
+private Repo repo;
 @GetMapping("greet")
 public  String sayHello(){
 return "hello i am working fine now ...in abc get mapping";
 
 }
-@PostMapping("add")
-public String add(@RequestBody String s){
-return "hello add student is working "+" : "+s;
+@GetMapping("add")
+public String addStudent(@RequestParam int id,@RequestParam String name,@RequestParam int age){
+Student s=new Student(id,name,age);
+repo.add(s);
+return "Student is added to db  "+" : "+s.getName();;
 }
 
 
