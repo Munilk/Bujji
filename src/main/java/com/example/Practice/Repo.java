@@ -8,7 +8,6 @@ import java.util.Arrays;
 import com.example.Practice.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 public class Repo{
 @Autowired
 private Student Student;
